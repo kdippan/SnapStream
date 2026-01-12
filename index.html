@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>SnapStream - Instant Website Screenshot API Tool | Dippan Bhusal</title>
+    <meta name="description" content="Free online tool to capture high-resolution, full-page website screenshots. Test responsive designs on Desktop, Tablet, and Mobile instantly. No login required.">
+    <meta name="keywords" content="website to image, screenshot api, webpage capture, full page screenshot, responsive testing tool, free screenshot generator, html to image">
+    <meta name="author" content="Dippan Bhusal">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://snapstream.dippanbhusal.tech/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snapstream.dippanbhusal.tech/">
+    <meta property="og:title" content="SnapStream - Professional Web Capture Tool">
+    <meta property="og:description" content="Turn any URL into a high-quality image in seconds. Supports full-page scrolling and responsive viewports.">
+    <meta property="og:image" content="https://i.ibb.co/fVyM6zKf/34937.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://snapstream.dippanbhusal.tech/">
+    <meta name="twitter:title" content="SnapStream - Instant Screenshots">
+    <meta name="twitter:description" content="Capture website snapshots instantly. Free for developers and designers.">
+    <meta name="twitter:image" content="https://i.ibb.co/fVyM6zKf/34937.jpg">
+    <meta name="twitter:creator" content="@DippanBhusal">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SnapStream",
+      "operatingSystem": "Web",
+      "applicationCategory": "DeveloperApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Dippan Bhusal"
+      },
+      "description": "A client-side tool to capture high-resolution website screenshots in seconds."
+    }
+    </script>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="https://i.postimg.cc/G2vpt4Y3/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://i.postimg.cc/C1bK5RDL/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://i.postimg.cc/hjVGvXxc/android-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://i.postimg.cc/SscKRn8K/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://i.postimg.cc/vTMZVGLM/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://i.postimg.cc/HnHkyT4p/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://i.postimg.cc/63CQq8R9/android-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://i.postimg.cc/hjVGvXxj/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.postimg.cc/br8wtqHY/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="https://i.postimg.cc/9Myf0DTQ/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.postimg.cc/d3vVyJmZ/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://i.postimg.cc/bJ1vrZbP/android-icon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.postimg.cc/7hDZ2qMG/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://i.postimg.cc/63CQq8R9/android-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS Variables --- */
+        :root {
+            --brand: #FFDD00;
+            --brand-text: #000000;
+            --bg: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+            --input-bg: #F1F5F9;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border: #334155;
+            --input-bg: #020617;
+        }
+
+        * { box-sizing: border-box; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* --- Global Loader --- */
+        #globalLoader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg); z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 0.5s ease;
+        }
+        .spinner-main {
+            width: 50px; height: 50px; border: 5px solid var(--border);
+            border-top-color: var(--brand); border-radius: 50%;
+            animation: spin 1s linear infinite; margin-bottom: 20px;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* --- Navigation --- */
+        nav {
+            width: 100%; max-width: 800px; display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 30px; padding: 10px 0;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--brand); text-shadow: 2px 2px 0px rgba(0,0,0,0.1); }
+        .theme-toggle {
+            background: var(--card-bg); border: 1px solid var(--border); color: var(--text-main);
+            padding: 10px; border-radius: 50%; cursor: pointer; width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .theme-toggle:hover { border-color: var(--brand); }
+
+        /* --- Main App Container --- */
+        .app-container {
+            background: var(--card-bg); width: 100%; max-width: 600px; padding: 2rem;
+            border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+            border: 1px solid var(--border); position: relative; z-index: 10;
+        }
+
+        /* --- Inputs & Toggles --- */
+        label { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .input-wrapper { position: relative; margin-bottom: 20px; }
+        .input-wrapper i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+        
+        input[type="url"], input[type="number"] {
+            width: 100%; padding: 16px 16px 16px 45px; background: var(--input-bg);
+            border: 2px solid var(--border); border-radius: 12px; color: var(--text-main);
+            font-size: 1rem; font-family: inherit;
+        }
+        input:focus { outline: none; border-color: var(--brand); }
+
+        .toggle-group { display: flex; background: var(--input-bg); padding: 5px; border-radius: 12px; margin-bottom: 20px; gap: 5px; }
+        .toggle-btn {
+            flex: 1; padding: 10px; border: none; background: transparent; color: var(--text-muted);
+            font-weight: 600; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .toggle-btn.active { background: var(--card-bg); color: var(--text-main); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+        .settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; padding: 15px; background: var(--input-bg); border-radius: 12px; display: none; }
+        .settings-grid.show { display: grid; animation: fadeIn 0.3s ease; }
+        .advanced-toggle { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 15px; cursor: pointer; text-decoration: underline; }
+
+        .btn-main {
+            width: 100%; background: var(--brand); color: var(--brand-text); border: none;
+            padding: 18px; border-radius: 12px; font-weight: 800; font-size: 1.1rem;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+            box-shadow: 0 4px 0 #ccb100; margin-top: 10px;
+        }
+        .btn-main:active { transform: translateY(2px); box-shadow: none; }
+        .btn-main:disabled { opacity: 0.6; cursor: wait; }
+
+        /* --- Result & Skeleton --- */
+        .result-container { margin-top: 30px; display: none; }
+        .img-wrapper { position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); cursor: zoom-in; border: 2px solid var(--border); }
+        .img-wrapper img { width: 100%; display: block; }
+        
+        .skeleton {
+            width: 100%; height: 250px; background: linear-gradient(90deg, var(--input-bg) 25%, var(--border) 50%, var(--input-bg) 75%);
+            background-size: 200% 100%; animation: loading 1.5s infinite; border-radius: 12px; margin-top: 20px; display: none;
+        }
+        @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+        /* --- History Section --- */
+        .history-section { width: 100%; max-width: 600px; margin-top: 40px; }
+        .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .history-list { display: flex; flex-direction: column; gap: 10px; }
+        .history-item {
+            background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center; animation: fadeIn 0.3s;
+        }
+        .history-info { display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+        .history-url { font-weight: 700; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 300px; }
+        .history-meta { font-size: 0.8rem; color: var(--text-muted); display: flex; gap: 10px; align-items: center; }
+        .history-actions { display: flex; gap: 10px; }
+        .btn-icon { background: var(--input-bg); border: none; padding: 8px; border-radius: 8px; cursor: pointer; color: var(--text-main); }
+        .btn-icon:hover { background: var(--border); }
+        .btn-clear { color: #ef4444; background: transparent; border: none; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+
+        /* --- SEO Info & Footer --- */
+        .info-section { width: 100%; max-width: 800px; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .info-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 15px; }
+        .info-text { line-height: 1.6; color: var(--text-muted); margin-bottom: 20px; }
+
+        /* --- Developer Footer --- */
+        .footer { margin-top: 50px; text-align: center; color: var(--text-muted); font-size: 0.9rem; padding-bottom: 30px; border-top: 1px solid var(--border); padding-top: 30px; width: 100%; max-width: 800px; }
+        .dev-profile { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .dev-name { font-size: 1.2rem; font-weight: 800; color: var(--text-main); }
+        .social-grid { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 15px; }
+        .social-link { 
+            width: 40px; height: 40px; border-radius: 50%; background: var(--input-bg); color: var(--text-main);
+            display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; transition: 0.2s;
+        }
+        .social-link:hover { background: var(--brand); color: black; transform: translateY(-3px); }
+        
+        .github-actions { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; justify-content: center; }
+        .gh-btn {
+            background: #24292e; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none;
+            font-weight: 600; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;
+        }
+        .gh-btn.sponsor { background: #db61a2; }
+        .gh-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        /* --- Modal --- */
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95); backdrop-filter: blur(5px); align-items: center; justify-content: center; flex-direction: column;
+        }
+        .modal img { max-width: 90%; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+        .close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer; }
+        .modal-actions { margin-top: 20px; display: flex; gap: 15px; }
+        .btn-modal { background: white; color: black; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 700; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div id="globalLoader">
+        <div class="spinner-main"></div>
+        <div style="font-weight: 700; color: var(--text-muted);">SnapStream</div>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <i class="fa-solid fa-bolt"></i> SnapStream
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </nav>
+
+    <div class="app-container">
+        <label>Website URL</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-link"></i>
+            <input type="url" id="urlInput" placeholder="https://www.example.com" required>
+        </div>
+
+        <label>Viewport Mode</label>
+        <div class="toggle-group">
+            <button class="toggle-btn active" onclick="setPreset('desktop', this)">
+                <i class="fa-solid fa-desktop"></i> Desktop
+            </button>
+            <button class="toggle-btn" onclick="setPreset('tablet', this)">
+                <i class="fa-solid fa-tablet-screen-button"></i> Tablet
+            </button>
+            <button class="toggle-btn" onclick="setPreset('mobile', this)">
+                <i class="fa-solid fa-mobile-screen-button"></i> Mobile
+            </button>
+        </div>
+
+        <div class="advanced-toggle" onclick="toggleSettings()">
+            <i class="fa-solid fa-sliders"></i> Custom Settings & Ratio
+        </div>
+
+        <div class="settings-grid" id="advancedSettings">
+            <div>
+                <label>Width (px)</label>
+                <input type="number" id="customWidth" value="1920">
+            </div>
+            <div>
+                <label>Height (px)</label>
+                <input type="number" id="customHeight" value="1080">
+            </div>
+            <div style="grid-column: span 2; display:flex; gap:10px; align-items:center; margin-top:10px;">
+                <input type="checkbox" id="fullPage" style="width:auto;">
+                <label for="fullPage" style="margin:0; cursor:pointer;">Capture Full Page Scrolling</label>
+            </div>
+        </div>
+
+        <button class="btn-main" id="captureBtn" onclick="generateScreenshot()">
+            <i class="fa-solid fa-camera"></i> Capture Snapshot
+        </button>
+
+        <div class="skeleton" id="loader"></div>
+
+        <div class="result-container" id="resultArea">
+            <label>Snapshot Preview</label>
+            <div class="img-wrapper" onclick="openModal()">
+                <img id="resultImg" alt="Screenshot">
+            </div>
+        </div>
+    </div>
+
+    <div class="history-section" id="historySection" style="display:none;">
+        <div class="history-header">
+            <h3 style="margin:0;">Recent Snaps</h3>
+            <button class="btn-clear" onclick="clearHistory()">Clear All</button>
+        </div>
+        <div class="history-list" id="historyList"></div>
+    </div>
+
+    <div class="info-section">
+        <h1 class="info-title">SnapStream: Free Instant Website Screenshots</h1>
+        <p class="info-text">
+            SnapStream is the ultimate <strong>web screenshot tool</strong> for developers, designers, and marketers. Capture high-fidelity images of any website instantly using our cloud-based engine. 
+        </p>
+        <p class="info-text">
+            <strong>Key Features:</strong>
+            <br>• <strong>Responsive Testing:</strong> Simulate Desktop (1920x1080), Tablet, and Mobile viewports effortlessly.
+            <br>• <strong>Full Page Capture:</strong> Generate scrolling screenshots of entire landing pages.
+            <br>• <strong>Client-Side Privacy:</strong> Images are processed instantly without storing data on our servers.
+            <br>• <strong>High Performance:</strong> Powered by the Microlink API for pixel-perfect rendering.
+        </p>
+    </div>
+
+    <footer class="footer">
+        <div class="dev-profile">
+            <div class="dev-name">Developed by Dippan Bhusal</div>
+            
+            <div class="social-grid">
+                <a href="https://github.com/KDippan" target="_blank" class="social-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/KDippan" target="_blank" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/dippan.bhusal" target="_blank" class="social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com/@dippan.bhusal" target="_blank" class="social-link" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://facebook.com/dippan.bhusall" target="_blank" class="social-link" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://x.com/DippanBhusal" target="_blank" class="social-link" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="mailto:dippan.connect@gmail.com" class="social-link" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <div class="github-actions">
+                <a href="https://github.com/kdippan/SnapStream" target="_blank" class="gh-btn">
+                    <i class="fa-regular fa-star"></i> Star on GitHub
+                </a>
+                <a href="https://github.com/sponsors/KDippan" target="_blank" class="gh-btn sponsor">
+                    <i class="fa-regular fa-heart"></i> Sponsor
+                </a>
+            </div>
+            
+            <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">
+                &copy; 2026 SnapStream. Powered by Microlink API.
+            </div>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img id="modalImg" src="">
+        <div class="modal-actions">
+            <a id="downloadLink" href="#" class="btn-modal">Download</a>
+            <button class="btn-modal" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="dippanbhusal" data-description="Support me on Buy me a coffee!" data-message="Support Me !" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+    <script>
+        // --- Onload Loader ---
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('globalLoader');
+            loader.style.opacity = '0';
+            setTimeout(() => { loader.style.display = 'none'; }, 500);
+            initTheme(); // Ensure theme is applied
+        });
+
+        // --- Theme ---
+        function initTheme() {
+            const history = JSON.parse(localStorage.getItem('snapHistory')) || [];
+            if(history.length > 0) loadHistory();
+            
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const storedTheme = localStorage.getItem('theme');
+            const theme = storedTheme ? storedTheme : (prefersDark ? 'dark' : 'light');
+            
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeIcon();
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        }
+
+        function updateThemeIcon() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const icon = document.getElementById('themeBtn').querySelector('i');
+            icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        }
+
+        // --- Core Functions ---
+        function setPreset(mode, btn) {
+            document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const w = document.getElementById('customWidth');
+            const h = document.getElementById('customHeight');
+            if(mode === 'desktop') { w.value = 1920; h.value = 1080; }
+            if(mode === 'tablet') { w.value = 800; h.value = 1024; }
+            if(mode === 'mobile') { w.value = 375; h.value = 812; }
+        }
+        
+        function toggleSettings() {
+            document.getElementById('advancedSettings').classList.toggle('show');
+        }
+
+        // --- Screenshot Logic (Direct Load Method) ---
+        function generateScreenshot() {
+            const url = document.getElementById('urlInput').value;
+            const width = document.getElementById('customWidth').value;
+            const height = document.getElementById('customHeight').value;
+            const fullPage = document.getElementById('fullPage').checked;
+            
+            const btn = document.getElementById('captureBtn');
+            const loader = document.getElementById('loader');
+            const resultArea = document.getElementById('resultArea');
+            const resultImg = document.getElementById('resultImg');
+            const modalImg = document.getElementById('modalImg');
+            const dlLink = document.getElementById('downloadLink');
+
+            if (!url) { alert("Please enter a valid URL"); return; }
+
+            // UI Loading State
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Generating...';
+            resultArea.style.display = 'none';
+            loader.style.display = 'block';
+
+            // Construct URL
+            let apiUrl = `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
+            apiUrl += `&viewport.width=${width}&viewport.height=${height}`;
+            if (fullPage) apiUrl += `&screenshot.fullPage=true`;
+            apiUrl += `&t=${new Date().getTime()}`; // Cache buster
+
+            // Direct Load
+            resultImg.src = apiUrl;
+            modalImg.src = apiUrl;
+            dlLink.href = apiUrl;
+            dlLink.download = `snapstream-${new Date().getTime()}.png`;
+
+            resultImg.onload = () => {
+                loader.style.display = 'none';
+                resultArea.style.display = 'block';
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-camera"></i> Capture Snapshot';
+                saveToHistory(url, apiUrl, width, height);
+            };
+
+            resultImg.onerror = () => {
+                loader.style.display = 'none';
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-camera"></i> Capture Snapshot';
+                alert("Failed to load image. Check URL or try again.");
+            };
+        }
+
+        // --- History Logic ---
+        function saveToHistory(url, imgUrl, w, h) {
+            const historyItem = {
+                url: url,
+                imgUrl: imgUrl,
+                width: w,
+                height: h,
+                date: new Date().toLocaleString()
+            };
+
+            let history = JSON.parse(localStorage.getItem('snapHistory')) || [];
+            history.unshift(historyItem);
+            if (history.length > 10) history.pop(); 
+            localStorage.setItem('snapHistory', JSON.stringify(history));
+            
+            loadHistory();
+        }
+
+        function loadHistory() {
+            const history = JSON.parse(localStorage.getItem('snapHistory')) || [];
+            const container = document.getElementById('historyList');
+            const section = document.getElementById('historySection');
+            
+            if (history.length === 0) {
+                section.style.display = 'none';
+                return;
+            }
+
+            section.style.display = 'block';
+            container.innerHTML = '';
+
+            history.forEach((item) => {
+                const div = document.createElement('div');
+                div.className = 'history-item';
+                div.innerHTML = `
+                    <div class="history-info">
+                        <div class="history-url" title="${item.url}">${item.url}</div>
+                        <div class="history-meta">
+                            <span><i class="fa-regular fa-clock"></i> ${item.date}</span>
+                            <span><i class="fa-solid fa-expand"></i> ${item.width}x${item.height}</span>
+                        </div>
+                    </div>
+                    <div class="history-actions">
+                        <a href="${item.imgUrl}" target="_blank" class="btn-icon" title="View"><i class="fa-solid fa-eye"></i></a>
+                        <a href="${item.imgUrl}" download="snap.png" class="btn-icon" title="Download"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function clearHistory() {
+            if(confirm("Clear all recent snapshots?")) {
+                localStorage.removeItem('snapHistory');
+                loadHistory();
+            }
+        }
+
+        // --- Modal ---
+        function openModal() { document.getElementById('imageModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('imageModal').style.display = 'none'; }
+        window.onclick = function(e) { if (e.target == document.getElementById('imageModal')) closeModal(); }
+    </script>
+</body>
+</html>

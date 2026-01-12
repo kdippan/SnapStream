@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>SnapStream - Instant Website Screenshot API Tool | Dippan Bhusal</title>
+    <title>SnapStream - Instant Website Screenshot API Tool</title>
     <meta name="description" content="Free online tool to capture high-resolution, full-page website screenshots. Test responsive designs on Desktop, Tablet, and Mobile instantly. No login required.">
     <meta name="keywords" content="website to image, screenshot api, webpage capture, full page screenshot, responsive testing tool, free screenshot generator, html to image">
     <meta name="author" content="Dippan Bhusal">
@@ -31,17 +31,36 @@
       "name": "SnapStream",
       "operatingSystem": "Web",
       "applicationCategory": "DeveloperApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Dippan Bhusal"
-      },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Person", "name": "Dippan Bhusal" },
       "description": "A client-side tool to capture high-resolution website screenshots in seconds."
     }
+    </script>
+
+    <script>
+        (function() {
+            const hostname = window.location.hostname;
+            let gaId = 'G-ER1HTYDD82'; // Default to Custom Domain ID
+
+            if (hostname.includes('snapstream-lake.vercel.app')) {
+                gaId = 'G-8F468V2JWX';
+            } else if (hostname.includes('snapstream.dippanbhusal.tech')) {
+                gaId = 'G-ER1HTYDD82';
+            }
+
+            // Inject gtag.js
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            document.head.appendChild(script);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', gaId);
+            
+            console.log(`Analytics initialized for ${hostname} with ID: ${gaId}`);
+        })();
     </script>
 
     <link rel="apple-touch-icon" sizes="57x57" href="https://i.postimg.cc/G2vpt4Y3/apple-icon-57x57.png">
@@ -117,17 +136,10 @@
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
         /* --- Navigation --- */
-        nav {
-            width: 100%; max-width: 800px; display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 30px; padding: 10px 0;
-        }
+        nav { width: 100%; max-width: 800px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding: 10px 0; }
         .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
         .logo i { color: var(--brand); text-shadow: 2px 2px 0px rgba(0,0,0,0.1); }
-        .theme-toggle {
-            background: var(--card-bg); border: 1px solid var(--border); color: var(--text-main);
-            padding: 10px; border-radius: 50%; cursor: pointer; width: 40px; height: 40px;
-            display: flex; align-items: center; justify-content: center;
-        }
+        .theme-toggle { background: var(--card-bg); border: 1px solid var(--border); color: var(--text-main); padding: 10px; border-radius: 50%; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
         .theme-toggle:hover { border-color: var(--brand); }
 
         /* --- Main App Container --- */
@@ -139,34 +151,20 @@
 
         /* --- Inputs & Toggles --- */
         label { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
-        
         .input-wrapper { position: relative; margin-bottom: 20px; }
         .input-wrapper i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
-        
-        input[type="url"], input[type="number"] {
-            width: 100%; padding: 16px 16px 16px 45px; background: var(--input-bg);
-            border: 2px solid var(--border); border-radius: 12px; color: var(--text-main);
-            font-size: 1rem; font-family: inherit;
-        }
+        input[type="url"], input[type="number"] { width: 100%; padding: 16px 16px 16px 45px; background: var(--input-bg); border: 2px solid var(--border); border-radius: 12px; color: var(--text-main); font-size: 1rem; font-family: inherit; }
         input:focus { outline: none; border-color: var(--brand); }
 
         .toggle-group { display: flex; background: var(--input-bg); padding: 5px; border-radius: 12px; margin-bottom: 20px; gap: 5px; }
-        .toggle-btn {
-            flex: 1; padding: 10px; border: none; background: transparent; color: var(--text-muted);
-            font-weight: 600; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
-        }
+        .toggle-btn { flex: 1; padding: 10px; border: none; background: transparent; color: var(--text-muted); font-weight: 600; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
         .toggle-btn.active { background: var(--card-bg); color: var(--text-main); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
         .settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; padding: 15px; background: var(--input-bg); border-radius: 12px; display: none; }
         .settings-grid.show { display: grid; animation: fadeIn 0.3s ease; }
         .advanced-toggle { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 15px; cursor: pointer; text-decoration: underline; }
 
-        .btn-main {
-            width: 100%; background: var(--brand); color: var(--brand-text); border: none;
-            padding: 18px; border-radius: 12px; font-weight: 800; font-size: 1.1rem;
-            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
-            box-shadow: 0 4px 0 #ccb100; margin-top: 10px;
-        }
+        .btn-main { width: 100%; background: var(--brand); color: var(--brand-text); border: none; padding: 18px; border-radius: 12px; font-weight: 800; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 0 #ccb100; margin-top: 10px; }
         .btn-main:active { transform: translateY(2px); box-shadow: none; }
         .btn-main:disabled { opacity: 0.6; cursor: wait; }
 
@@ -174,21 +172,14 @@
         .result-container { margin-top: 30px; display: none; }
         .img-wrapper { position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); cursor: zoom-in; border: 2px solid var(--border); }
         .img-wrapper img { width: 100%; display: block; }
-        
-        .skeleton {
-            width: 100%; height: 250px; background: linear-gradient(90deg, var(--input-bg) 25%, var(--border) 50%, var(--input-bg) 75%);
-            background-size: 200% 100%; animation: loading 1.5s infinite; border-radius: 12px; margin-top: 20px; display: none;
-        }
+        .skeleton { width: 100%; height: 250px; background: linear-gradient(90deg, var(--input-bg) 25%, var(--border) 50%, var(--input-bg) 75%); background-size: 200% 100%; animation: loading 1.5s infinite; border-radius: 12px; margin-top: 20px; display: none; }
         @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
         /* --- History Section --- */
         .history-section { width: 100%; max-width: 600px; margin-top: 40px; }
         .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
         .history-list { display: flex; flex-direction: column; gap: 10px; }
-        .history-item {
-            background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid var(--border);
-            display: flex; justify-content: space-between; align-items: center; animation: fadeIn 0.3s;
-        }
+        .history-item { background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; animation: fadeIn 0.3s; }
         .history-info { display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
         .history-url { font-weight: 700; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 300px; }
         .history-meta { font-size: 0.8rem; color: var(--text-muted); display: flex; gap: 10px; align-items: center; }
@@ -197,35 +188,43 @@
         .btn-icon:hover { background: var(--border); }
         .btn-clear { color: #ef4444; background: transparent; border: none; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
 
-        /* --- SEO Info & Footer --- */
+        /* --- Footer --- */
         .info-section { width: 100%; max-width: 800px; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
         .info-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 15px; }
         .info-text { line-height: 1.6; color: var(--text-muted); margin-bottom: 20px; }
-
-        /* --- Developer Footer --- */
         .footer { margin-top: 50px; text-align: center; color: var(--text-muted); font-size: 0.9rem; padding-bottom: 30px; border-top: 1px solid var(--border); padding-top: 30px; width: 100%; max-width: 800px; }
         .dev-profile { display: flex; flex-direction: column; align-items: center; gap: 15px; }
         .dev-name { font-size: 1.2rem; font-weight: 800; color: var(--text-main); }
         .social-grid { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 15px; }
-        .social-link { 
-            width: 40px; height: 40px; border-radius: 50%; background: var(--input-bg); color: var(--text-main);
-            display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; transition: 0.2s;
-        }
+        .social-link { width: 40px; height: 40px; border-radius: 50%; background: var(--input-bg); color: var(--text-main); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
         .social-link:hover { background: var(--brand); color: black; transform: translateY(-3px); }
-        
         .github-actions { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; justify-content: center; }
-        .gh-btn {
-            background: #24292e; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none;
-            font-weight: 600; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;
-        }
+        .gh-btn { background: #24292e; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
         .gh-btn.sponsor { background: #db61a2; }
         .gh-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        /* --- Modal --- */
-        .modal {
-            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.95); backdrop-filter: blur(5px); align-items: center; justify-content: center; flex-direction: column;
+        /* --- Cookie Consent Dialog --- */
+        #cookieConsent {
+            position: fixed; bottom: 20px; right: 20px; width: 350px;
+            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px);
+            color: white; border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 10000; border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            display: none; /* Hidden by default */
         }
+        @keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        .cookie-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .cookie-title i { color: var(--brand); }
+        .cookie-text { font-size: 0.85rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 20px; }
+        .cookie-btn {
+            background: var(--brand); color: black; border: none; padding: 12px; width: 100%;
+            border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.2s;
+        }
+        .cookie-btn:hover { background: #ffe600; transform: translateY(-1px); }
+
+        /* --- Modal --- */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); backdrop-filter: blur(5px); align-items: center; justify-content: center; flex-direction: column; }
         .modal img { max-width: 90%; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
         .close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer; }
         .modal-actions { margin-top: 20px; display: flex; gap: 15px; }
@@ -239,6 +238,14 @@
     <div id="globalLoader">
         <div class="spinner-main"></div>
         <div style="font-weight: 700; color: var(--text-muted);">SnapStream</div>
+    </div>
+
+    <div id="cookieConsent">
+        <div class="cookie-title"><i class="fa-solid fa-cookie-bite"></i> Transparency</div>
+        <div class="cookie-text">
+            We use analytics to improve SnapStream. As a community-driven project with limited resources, reliable usage data is essential for maintenance and bug fixing. By continuing to use this site, you acknowledge our use of cookies for performance tracking.
+        </div>
+        <button class="cookie-btn" onclick="acceptCookies()">Accept & Continue</button>
     </div>
 
     <nav>
@@ -366,13 +373,28 @@
     <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="dippanbhusal" data-description="Support me on Buy me a coffee!" data-message="Support Me !" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
     <script>
-        // --- Onload Loader ---
+        // --- Onload Loader & Cookie Check ---
         window.addEventListener('load', () => {
+            // Loader
             const loader = document.getElementById('globalLoader');
             loader.style.opacity = '0';
             setTimeout(() => { loader.style.display = 'none'; }, 500);
-            initTheme(); // Ensure theme is applied
+            
+            initTheme();
+
+            // Cookie Dialog Check
+            if (!localStorage.getItem('cookieConsent')) {
+                setTimeout(() => {
+                    document.getElementById('cookieConsent').style.display = 'block';
+                }, 2000); // Show after 2 seconds
+            }
         });
+
+        // --- Cookie Function ---
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'true');
+            document.getElementById('cookieConsent').style.display = 'none';
+        }
 
         // --- Theme ---
         function initTheme() {

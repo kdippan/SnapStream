@@ -1,0 +1,26 @@
+{
+    "name": "SnapStream",
+    "short_name": "SnapStream",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#FFDD00",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "https://i.postimg.cc/9Myf0DTQ/android-icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "https://i.postimg.cc/63CQq8R9/android-icon-144x144.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "https://i.postimg.cc/bJ1vrZbP/android-icon-96x96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        }
+    ]
+}

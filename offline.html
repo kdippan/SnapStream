@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3159539127750553" crossorigin="anonymous"></script>
+    
+    <script>
+        (function() {
+            const hostname = window.location.hostname;
+            let gaId = 'G-ER1HTYDD82'; 
+
+            if (hostname.includes('snapstream-lake.vercel.app')) {
+                gaId = 'G-8F468V2JWX';
+            } else if (hostname.includes('snapstream.dippanbhusal.tech')) {
+                gaId = 'G-ER1HTYDD82';
+            }
+
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            document.head.appendChild(script);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', gaId);
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Connection | SnapStream</title>
+    <style>
+        body {
+            font-family: sans-serif; background: #0f172a; color: white;
+            height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center; margin: 0;
+        }
+        .icon { font-size: 4rem; margin-bottom: 20px; color: #FFDD00; }
+        button {
+            background: #FFDD00; border: none; padding: 12px 24px;
+            font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon">⚠️</div>
+    <h1>You are Offline</h1>
+    <p>Please check your internet connection and try again.</p>
+    <button onclick="window.location.reload()">Retry Connection</button>
+</body>
+</html>

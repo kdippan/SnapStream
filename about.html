@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Story Behind SnapStream</title>
+    <meta name="description" content="Learn about the mission behind SnapStream, the free, privacy-focused website screenshot tool built for developers and designers.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://snapstream.dippanbhusal.tech/about.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3159539127750553" crossorigin="anonymous"></script>
+    
+    <script>
+        (function() {
+            const hostname = window.location.hostname;
+            let gaId = 'G-ER1HTYDD82'; 
+
+            if (hostname.includes('snapstream-lake.vercel.app')) {
+                gaId = 'G-8F468V2JWX';
+            } else if (hostname.includes('snapstream.dippanbhusal.tech')) {
+                gaId = 'G-ER1HTYDD82';
+            }
+
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            document.head.appendChild(script);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', gaId);
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { --brand: #FFDD00; --bg: #F8FAFC; --card-bg: #FFFFFF; --text: #0F172A; --muted: #64748B; --border: #E2E8F0; }
+        [data-theme="dark"] { --bg: #0f172a; --card-bg: #1e293b; --text: #F8FAFC; --muted: #94A3B8; --border: #334155; }
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 800px; margin: 40px auto; background: var(--card-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--border); }
+        
+        h1 { font-size: 2.5rem; margin-bottom: 20px; color: var(--text); }
+        h1 span { color: #eab308; } /* Darker yellow for text readability */
+        h2 { margin-top: 30px; font-size: 1.5rem; }
+        p { color: var(--muted); margin-bottom: 15px; }
+        
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .feature-card { padding: 20px; background: var(--bg); border-radius: 12px; border: 1px solid var(--border); }
+        .feature-icon { font-size: 1.5rem; color: var(--brand); margin-bottom: 10px; }
+        
+        .btn-home { display: inline-block; margin-top: 20px; padding: 10px 20px; background: var(--text); color: var(--bg); text-decoration: none; border-radius: 8px; font-weight: bold; }
+        
+        @media (prefers-color-scheme: dark) { h1 span { color: var(--brand); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>About <span>SnapStream</span></h1>
+        <p><strong>Simplifying Web Capture for Everyone.</strong></p>
+        
+        <p>SnapStream was born out of a simple frustration: taking high-quality, full-page screenshots of websites shouldn't require expensive software, heavy browser extensions, or creating an account.</p>
+
+        <p>As developers and designers, we often need to archive landing pages, test responsive layouts, or generate assets for presentations. Existing tools were either too slow, watermarked, or trapped behind paywalls. SnapStream solves this by providing a <strong>free, fast, and privacy-focused</strong> utility accessible directly from your browser.</p>
+
+        <h2>Our Core Mission</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <strong>Speed First</strong>
+                <p style="font-size: 0.9rem;">We leverage edge computing and the Microlink API to render pages in milliseconds, not seconds.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-user-shield"></i></div>
+                <strong>Privacy Centric</strong>
+                <p style="font-size: 0.9rem;">We don't track your history. Images are generated on-the-fly and processed client-side.</p>
+            </div>
+        </div>
+
+        <h2>The Technology Stack</h2>
+        <p>SnapStream is a modern Single Page Application (SPA) built with:</p>
+        <ul style="color: var(--muted);">
+            <li><strong>Vanilla JavaScript (ES6+):</strong> For a lightweight, dependency-free footprint.</li>
+            <li><strong>Microlink API:</strong> For enterprise-grade headless browser rendering (Chromium).</li>
+            <li><strong>HTML5 & CSS3:</strong> For a responsive, accessible, and theme-aware UI.</li>
+        </ul>
+
+        <h2>Meet the Developer</h2>
+        <p>SnapStream is developed and maintained by <strong>Dippan Bhusal</strong>, a passionate software engineer focused on building open-source web utilities.</p>
+        
+        <a href="/" class="btn-home"><i class="fa-solid fa-arrow-left"></i> Back to Tool</a>
+    </div>
+
+</body>
+</html>

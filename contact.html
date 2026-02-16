@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | SnapStream</title>
+    <meta name="robots" content="index, follow">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3159539127750553" crossorigin="anonymous"></script>
+    
+    <script>
+        (function() {
+            const hostname = window.location.hostname;
+            let gaId = 'G-ER1HTYDD82'; 
+
+            if (hostname.includes('snapstream-lake.vercel.app')) {
+                gaId = 'G-8F468V2JWX';
+            } else if (hostname.includes('snapstream.dippanbhusal.tech')) {
+                gaId = 'G-ER1HTYDD82';
+            }
+
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            document.head.appendChild(script);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', gaId);
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { --brand: #FFDD00; --bg: #F8FAFC; --card-bg: #FFFFFF; --text: #0F172A; --muted: #64748B; --border: #E2E8F0; --input: #F1F5F9; }
+        [data-theme="dark"] { --bg: #0f172a; --card-bg: #1e293b; --text: #F8FAFC; --muted: #94A3B8; --border: #334155; --input: #020617; }
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        
+        .contact-card { width: 100%; max-width: 500px; background: var(--card-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        
+        h1 { margin-top: 0; font-size: 2rem; }
+        p { color: var(--muted); margin-bottom: 30px; }
+        
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.9rem; }
+        input, textarea { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid var(--border); background: var(--input); color: var(--text); font-family: inherit; box-sizing: border-box; }
+        input:focus, textarea:focus { outline: none; border-color: var(--brand); }
+        
+        .btn-submit { width: 100%; background: var(--brand); color: black; border: none; padding: 15px; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 1rem; margin-top: 10px; transition: transform 0.1s; }
+        .btn-submit:active { transform: scale(0.98); }
+
+        .direct-email { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--muted); }
+        .direct-email a { color: var(--text); font-weight: bold; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="contact-card">
+        <h1>Get in Touch</h1>
+        <p>Have a feature request, bug report, or partnership inquiry? We'd love to hear from you.</p>
+
+        <form action="mailto:dippan.connect@gmail.com" method="post" enctype="text/plain">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Subject</label>
+                <select name="subject" style="width:100%; padding:12px; border-radius:10px; border:2px solid var(--border); background:var(--input); color:var(--text);">
+                    <option>General Inquiry</option>
+                    <option>Bug Report</option>
+                    <option>Feature Request</option>
+                    <option>Advertising</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Message</label>
+                <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+        </form>
+
+        <div class="direct-email">
+            Prefer direct email?<br>
+            <a href="mailto:dippan.connect@gmail.com">dippan.connect@gmail.com</a>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">&larr; Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+# SnapStream
+
+> Instant Website Screenshot Generator & API
+
+SnapStream is a free, client-side web application that allows users to capture high-resolution screenshots of any website. 
+
+## Features
+- **URL**: https://snapstream.dippanbhusal.tech/
+- **Input**: User provides a URL.
+- **Output**: Generates a high-quality PNG image.
+- **Tech Stack**: HTML, CSS, Vanilla JS, Microlink API.
+- **Privacy**: No server-side storage; all processing is client-side.
+
+## Usage
+To use the tool, visit the URL, enter a target website, select a viewport (Desktop, Tablet, Mobile), and click "Capture".

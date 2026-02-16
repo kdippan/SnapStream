@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | SnapStream</title>
+    <meta name="description" content="Contact the developer of SnapStream for feature requests, bug reports, or partnerships.">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://snapstream.dippanbhusal.tech/contact.html">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3159539127750553" crossorigin="anonymous"></script>
     
     <script>
@@ -28,7 +30,7 @@
             gtag('js', new Date());
             gtag('config', gaId);
         })();
-    </script>
+                </script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -45,14 +47,20 @@
         
         .form-group { margin-bottom: 20px; }
         label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.9rem; }
-        input, textarea { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid var(--border); background: var(--input); color: var(--text); font-family: inherit; box-sizing: border-box; }
-        input:focus, textarea:focus { outline: none; border-color: var(--brand); }
+        input, textarea, select { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid var(--border); background: var(--input); color: var(--text); font-family: inherit; box-sizing: border-box; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: var(--brand); }
         
-        .btn-submit { width: 100%; background: var(--brand); color: black; border: none; padding: 15px; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 1rem; margin-top: 10px; transition: transform 0.1s; }
+        .btn-submit { width: 100%; background: var(--brand); color: black; border: none; padding: 15px; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 1rem; margin-top: 10px; transition: transform 0.1s; display: flex; justify-content: center; align-items: center; gap: 10px; }
         .btn-submit:active { transform: scale(0.98); }
+        .btn-submit:disabled { opacity: 0.7; cursor: wait; }
 
         .direct-email { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--muted); }
         .direct-email a { color: var(--text); font-weight: bold; text-decoration: none; }
+
+        /* Notification Styles */
+        .notification { padding: 15px; border-radius: 10px; margin-bottom: 20px; font-size: 0.9rem; display: none; }
+        .success { background-color: #d1fae5; color: #065f46; border: 1px solid #34d399; }
+        .error { background-color: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
     </style>
 </head>
 <body>
@@ -61,19 +69,26 @@
         <h1>Get in Touch</h1>
         <p>Have a feature request, bug report, or partnership inquiry? We'd love to hear from you.</p>
 
-        <form action="mailto:dippan.connect@gmail.com" method="post" enctype="text/plain">
+        <div id="result" class="notification"></div>
+
+        <form id="contactForm">
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" placeholder="Your Name" required>
             </div>
             
             <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
                 <label>Subject</label>
-                <select name="subject" style="width:100%; padding:12px; border-radius:10px; border:2px solid var(--border); background:var(--input); color:var(--text);">
-                    <option>General Inquiry</option>
-                    <option>Bug Report</option>
-                    <option>Feature Request</option>
-                    <option>Advertising</option>
+                <select name="subject" required>
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Bug Report">Bug Report</option>
+                    <option value="Feature Request">Feature Request</option>
+                    <option value="Advertising">Advertising</option>
                 </select>
             </div>
 
@@ -82,7 +97,9 @@
                 <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
             </div>
 
-            <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+            <button type="submit" class="btn-submit" id="submitBtn">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
         </form>
 
         <div class="direct-email">
@@ -94,6 +111,63 @@
             <a href="/" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">&larr; Back to Home</a>
         </div>
     </div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const result = document.getElementById('result');
+        const btn = document.getElementById('submitBtn');
+        const originalBtnText = btn.innerHTML;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // UI Loading State
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
+            result.style.display = 'none';
+
+            // Gather Data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            // Send to Serverless Function (Secure)
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(async (response) => {
+                const json = await response.json();
+                
+                if (response.status === 200) {
+                    result.innerHTML = "✅ Message sent successfully! We will get back to you soon.";
+                    result.classList.remove('error');
+                    result.classList.add('success');
+                    result.style.display = 'block';
+                    form.reset(); 
+                } else {
+                    result.innerHTML = "⚠️ " + (json.message || "Something went wrong.");
+                    result.classList.remove('success');
+                    result.classList.add('error');
+                    result.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                result.innerHTML = "⚠️ Network error. Please try again later.";
+                result.classList.remove('success');
+                result.classList.add('error');
+                result.style.display = 'block';
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnText;
+                setTimeout(() => { result.style.display = 'none'; }, 5000);
+            });
+        });
+    </script>
 
 </body>
 </html>

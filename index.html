@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="system">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3159539127750553"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3159539127750553" crossorigin="anonymous"></script>
+    
+    <script>
+        (function() {
+            const hostname = window.location.hostname;
+            let gaId = 'G-ER1HTYDD82'; 
+
+            if (hostname.includes('snapstream-lake.vercel.app')) {
+                gaId = 'G-8F468V2JWX';
+            } else if (hostname.includes('snapstream.dippanbhusal.tech')) {
+                gaId = 'G-ER1HTYDD82';
+            }
+
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            document.head.appendChild(script);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', gaId);
+        })();
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="K9sOD78ZVUqGuoDzIwU2bKl8TrSWH7depKGdYZbKZDc" />
     <meta name="google-site-verification" content="0CPiTnvvYPpwKdsXQe9_7cj_raniQuXCGa49aBMmvFI" />
-    
+
     <title>Free Website Screenshot Generator & Full Page Capture API | SnapStream</title>
     
-    <meta name="description" content="Instantly capture high-resolution, full-page website screenshots with SnapStream. Free screenshot generator with mobile emulation, no watermarks, and fast cloud rendering.">
+    <meta name="description" content="Capture high-res, full-page website screenshots instantly with SnapStream. Free tool with mobile emulation, no watermarks, and fast cloud rendering.">
     
     <meta name="keywords" content="website screenshot generator, full page capture, free screenshot api, responsive screen capture, html to image, mobile emulator, 4k screenshot tool, no watermark screenshot">
     <meta name="author" content="Dippan Bhusal">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://snapstream.dippanbhusal.tech/">
+
+    <link rel="alternate" hreflang="en" href="https://snapstream.dippanbhusal.tech/" />
+    <link rel="alternate" hreflang="x-default" href="https://snapstream.dippanbhusal.tech/" />
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://snapstream.dippanbhusal.tech/">
@@ -48,53 +74,18 @@
             "mainEntity": [{
                 "@type": "Question",
                 "name": "How do I take a full-page screenshot of a website?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Simply enter the URL into SnapStream, check the 'Capture Full Page Scrolling' box in the settings, and click Capture. The tool will scroll and render the entire page."
-                }
+                "acceptedAnswer": { "@type": "Answer", "text": "Simply enter the URL into SnapStream, check the 'Capture Full Page Scrolling' box in the settings, and click Capture. The tool will scroll and render the entire page." }
             }, {
                 "@type": "Question",
                 "name": "Is this website screenshot generator free?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, SnapStream is completely free to use for capturing high-resolution screenshots without watermarks."
-                }
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes, SnapStream is completely free to use for capturing high-resolution screenshots without watermarks." }
             }, {
                 "@type": "Question",
                 "name": "Can I test mobile responsive views?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Absolutely. Use the toggle buttons to switch between Desktop (1920px), Tablet, and Mobile viewports to test responsive designs instantly."
-                }
+                "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Use the toggle buttons to switch between Desktop (1920px), Tablet, and Mobile viewports to test responsive designs instantly." }
             }]
         }
     ]
-    </script>
-
-    <script>
-        (function() {
-            const hostname = window.location.hostname;
-            let gaId = 'G-ER1HTYDD82'; // Default to Custom Domain ID
-
-            if (hostname.includes('snapstream-lake.vercel.app')) {
-                gaId = 'G-8F468V2JWX';
-            } else if (hostname.includes('snapstream.dippanbhusal.tech')) {
-                gaId = 'G-ER1HTYDD82';
-            }
-
-            // Inject gtag.js
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
-            document.head.appendChild(script);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', gaId);
-            
-            console.log(`Analytics initialized for ${hostname} with ID: ${gaId}`);
-        })();
     </script>
 
     <link rel="apple-touch-icon" sizes="57x57" href="https://i.postimg.cc/G2vpt4Y3/apple-icon-57x57.png">
@@ -119,71 +110,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- CSS Variables --- */
-        :root {
-            --brand: #FFDD00;
-            --brand-text: #000000;
-            --bg: #F8FAFC;
-            --card-bg: #FFFFFF;
-            --text-main: #0F172A;
-            --text-muted: #64748B;
-            --border: #E2E8F0;
-            --input-bg: #F1F5F9;
-        }
-
-        [data-theme="dark"] {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
-            --border: #334155;
-            --input-bg: #020617;
-        }
-
+        :root { --brand: #FFDD00; --brand-text: #000000; --bg: #F8FAFC; --card-bg: #FFFFFF; --text-main: #0F172A; --text-muted: #64748B; --border: #E2E8F0; --input-bg: #F1F5F9; }
+        [data-theme="dark"] { --bg: #0f172a; --card-bg: #1e293b; --text-main: #F8FAFC; --text-muted: #94A3B8; --border: #334155; --input-bg: #020617; }
         * { box-sizing: border-box; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-main); margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 20px; overflow-x: hidden; }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            overflow-x: hidden;
-        }
-
-        /* --- Global Loader --- */
-        #globalLoader {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg); z-index: 9999;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            transition: opacity 0.5s ease;
-        }
-        .spinner-main {
-            width: 50px; height: 50px; border: 5px solid var(--border);
-            border-top-color: var(--brand); border-radius: 50%;
-            animation: spin 1s linear infinite; margin-bottom: 20px;
-        }
+        #globalLoader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease; }
+        .spinner-main { width: 50px; height: 50px; border: 5px solid var(--border); border-top-color: var(--brand); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* --- Navigation --- */
+        #cookieConsent { position: fixed; bottom: 20px; right: 20px; width: 350px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); color: white; border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 10000; border: 1px solid rgba(255, 255, 255, 0.1); animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1); display: none; }
+        @keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .cookie-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .cookie-title i { color: var(--brand); }
+        .cookie-text { font-size: 0.85rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 20px; }
+        .cookie-btn { background: var(--brand); color: black; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+        .cookie-btn:hover { background: #ffe600; transform: translateY(-1px); }
+
         nav { width: 100%; max-width: 800px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding: 10px 0; }
         .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
         .logo i { color: var(--brand); text-shadow: 2px 2px 0px rgba(0,0,0,0.1); }
         .theme-toggle { background: var(--card-bg); border: 1px solid var(--border); color: var(--text-main); padding: 10px; border-radius: 50%; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
         .theme-toggle:hover { border-color: var(--brand); }
 
-        /* --- Main App Container --- */
-        .app-container {
-            background: var(--card-bg); width: 100%; max-width: 600px; padding: 2rem;
-            border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
-            border: 1px solid var(--border); position: relative; z-index: 10;
-        }
-
-        /* --- Inputs & Toggles --- */
+        .app-container { background: var(--card-bg); width: 100%; max-width: 600px; padding: 2rem; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); border: 1px solid var(--border); position: relative; z-index: 10; }
         label { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
         .input-wrapper { position: relative; margin-bottom: 20px; }
         .input-wrapper i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
@@ -202,14 +152,12 @@
         .btn-main:active { transform: translateY(2px); box-shadow: none; }
         .btn-main:disabled { opacity: 0.6; cursor: wait; }
 
-        /* --- Result & Skeleton --- */
         .result-container { margin-top: 30px; display: none; }
         .img-wrapper { position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); cursor: zoom-in; border: 2px solid var(--border); }
         .img-wrapper img { width: 100%; display: block; }
         .skeleton { width: 100%; height: 250px; background: linear-gradient(90deg, var(--input-bg) 25%, var(--border) 50%, var(--input-bg) 75%); background-size: 200% 100%; animation: loading 1.5s infinite; border-radius: 12px; margin-top: 20px; display: none; }
         @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
-        /* --- History Section --- */
         .history-section { width: 100%; max-width: 600px; margin-top: 40px; }
         .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
         .history-list { display: flex; flex-direction: column; gap: 10px; }
@@ -222,7 +170,6 @@
         .btn-icon:hover { background: var(--border); }
         .btn-clear { color: #ef4444; background: transparent; border: none; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
 
-        /* --- Footer --- */
         .info-section { width: 100%; max-width: 800px; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
         .info-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 20px; color: var(--text-main); text-align: center; }
         .info-subtitle { font-size: 1.3rem; font-weight: 700; margin: 25px 0 15px; color: var(--text-main); }
@@ -231,7 +178,6 @@
         .info-list li { margin-bottom: 10px; padding-left: 20px; position: relative; color: var(--text-muted); }
         .info-list li::before { content: "•"; color: var(--brand); font-weight: bold; position: absolute; left: 0; }
         
-        /* Accordion for FAQ */
         .faq-container { margin-top: 20px; }
         .faq-item { border-bottom: 1px solid var(--border); padding: 15px 0; }
         .faq-question { font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; color: var(--text-main); }
@@ -250,27 +196,6 @@
         .gh-btn.sponsor { background: #db61a2; }
         .gh-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        /* --- Cookie Consent Dialog --- */
-        #cookieConsent {
-            position: fixed; bottom: 20px; right: 20px; width: 350px;
-            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px);
-            color: white; border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            z-index: 10000; border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            display: none; /* Hidden by default */
-        }
-        @keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        
-        .cookie-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-        .cookie-title i { color: var(--brand); }
-        .cookie-text { font-size: 0.85rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 20px; }
-        .cookie-btn {
-            background: var(--brand); color: black; border: none; padding: 12px; width: 100%;
-            border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.2s;
-        }
-        .cookie-btn:hover { background: #ffe600; transform: translateY(-1px); }
-
-        /* --- Modal --- */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); backdrop-filter: blur(5px); align-items: center; justify-content: center; flex-direction: column; }
         .modal img { max-width: 90%; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
         .close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer; }
@@ -395,6 +320,20 @@
             4. Click "Capture Snapshot" and download your high-quality PNG image instantly.
         </p>
 
+        <h2 class="info-subtitle">Technical Specifications</h2>
+        <p class="info-text">
+            SnapStream utilizes a serverless architecture to ensure speed and privacy.
+            <br>• <strong>Engine:</strong> Chromium-based cloud rendering via Microlink.
+            <br>• <strong>Format:</strong> High-fidelity PNG images.
+            <br>• <strong>Resolution:</strong> Supports standard HD (1920x1080) up to 4K rendering.
+            <br>• <strong>Privacy:</strong> No images are stored on our servers; everything is processed on the fly and delivered directly to your browser.
+        </p>
+
+        <h2 class="info-subtitle">Use Cases for Marketing & Social Media</h2>
+        <p class="info-text">
+            Marketers use SnapStream to generate clean assets for social media posts, slide decks, and case studies. By removing the browser chrome (address bar, tabs) and focusing purely on the viewport content, you get presentation-ready assets instantly. It is also an excellent tool for verifying ad placements and documenting bugs in QA testing.
+        </p>
+
         <h2 class="info-subtitle">Frequently Asked Questions (FAQ)</h2>
         <div class="faq-container">
             <div class="faq-item" onclick="toggleFaq(this)">
@@ -459,30 +398,25 @@
     <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="dippanbhusal" data-description="Support me on Buy me a coffee!" data-message="Support Me !" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
     <script>
-        // --- Onload Loader & Cookie Check ---
         window.addEventListener('load', () => {
-            // Loader
             const loader = document.getElementById('globalLoader');
             loader.style.opacity = '0';
             setTimeout(() => { loader.style.display = 'none'; }, 500);
             
             initTheme();
 
-            // Cookie Dialog Check
             if (!localStorage.getItem('cookieConsent')) {
                 setTimeout(() => {
                     document.getElementById('cookieConsent').style.display = 'block';
-                }, 2000); // Show after 2 seconds
+                }, 2000); 
             }
         });
 
-        // --- Cookie Function ---
         function acceptCookies() {
             localStorage.setItem('cookieConsent', 'true');
             document.getElementById('cookieConsent').style.display = 'none';
         }
 
-        // --- Theme ---
         function initTheme() {
             const history = JSON.parse(localStorage.getItem('snapHistory')) || [];
             if(history.length > 0) loadHistory();
@@ -509,7 +443,6 @@
             icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
         }
 
-        // --- Core Functions ---
         function setPreset(mode, btn) {
             document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -524,7 +457,6 @@
             document.getElementById('advancedSettings').classList.toggle('show');
         }
 
-        // --- Screenshot Logic (Direct Load Method) ---
         function generateScreenshot() {
             const url = document.getElementById('urlInput').value;
             const width = document.getElementById('customWidth').value;
@@ -540,19 +472,16 @@
 
             if (!url) { alert("Please enter a valid URL"); return; }
 
-            // UI Loading State
             btn.disabled = true;
             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Generating...';
             resultArea.style.display = 'none';
             loader.style.display = 'block';
 
-            // Construct URL
             let apiUrl = `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
             apiUrl += `&viewport.width=${width}&viewport.height=${height}`;
             if (fullPage) apiUrl += `&screenshot.fullPage=true`;
-            apiUrl += `&t=${new Date().getTime()}`; // Cache buster
+            apiUrl += `&t=${new Date().getTime()}`;
 
-            // Direct Load
             resultImg.src = apiUrl;
             modalImg.src = apiUrl;
             dlLink.href = apiUrl;
@@ -574,7 +503,6 @@
             };
         }
 
-        // --- History Logic ---
         function saveToHistory(url, imgUrl, w, h) {
             const historyItem = {
                 url: url,
@@ -632,12 +560,10 @@
             }
         }
 
-        // --- Modal ---
         function openModal() { document.getElementById('imageModal').style.display = 'flex'; }
         function closeModal() { document.getElementById('imageModal').style.display = 'none'; }
         window.onclick = function(e) { if (e.target == document.getElementById('imageModal')) closeModal(); }
 
-        // --- FAQ Toggle ---
         function toggleFaq(item) {
             item.classList.toggle('active');
             const icon = item.querySelector('.fa-chevron-down');

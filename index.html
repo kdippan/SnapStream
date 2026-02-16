@@ -6,10 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="K9sOD78ZVUqGuoDzIwU2bKl8TrSWH7depKGdYZbKZDc" />
-  <meta name="google-site-verification" content="0CPiTnvvYPpwKdsXQe9_7cj_raniQuXCGa49aBMmvFI" />
-    <title>SnapStream - Instant Website Screenshot API Tool</title>
-    <meta name="description" content="Free online tool to capture high-resolution, full-page website screenshots. Test responsive designs on Desktop, Tablet, and Mobile instantly. No login required.">
-    <meta name="keywords" content="website to image, screenshot api, webpage capture, full page screenshot, responsive testing tool, free screenshot generator, html to image">
+    <meta name="google-site-verification" content="0CPiTnvvYPpwKdsXQe9_7cj_raniQuXCGa49aBMmvFI" />
+    
+    <title>Free Website Screenshot Generator & Full Page Capture API | SnapStream</title>
+    
+    <meta name="description" content="Instantly capture high-resolution, full-page website screenshots with SnapStream. Free screenshot generator with mobile emulation, no watermarks, and fast cloud rendering.">
+    
+    <meta name="keywords" content="website screenshot generator, full page capture, free screenshot api, responsive screen capture, html to image, mobile emulator, 4k screenshot tool, no watermark screenshot">
     <meta name="author" content="Dippan Bhusal">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://snapstream.dippanbhusal.tech/">
@@ -28,16 +31,44 @@
     <meta name="twitter:creator" content="@DippanBhusal">
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "SnapStream",
-      "operatingSystem": "Web",
-      "applicationCategory": "DeveloperApplication",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "author": { "@type": "Person", "name": "Dippan Bhusal" },
-      "description": "A client-side tool to capture high-resolution website screenshots in seconds."
-    }
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "SnapStream",
+            "operatingSystem": "Web",
+            "applicationCategory": "DeveloperApplication",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "author": { "@type": "Person", "name": "Dippan Bhusal" },
+            "description": "A client-side tool to capture high-resolution website screenshots in seconds."
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [{
+                "@type": "Question",
+                "name": "How do I take a full-page screenshot of a website?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Simply enter the URL into SnapStream, check the 'Capture Full Page Scrolling' box in the settings, and click Capture. The tool will scroll and render the entire page."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Is this website screenshot generator free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, SnapStream is completely free to use for capturing high-resolution screenshots without watermarks."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Can I test mobile responsive views?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. Use the toggle buttons to switch between Desktop (1920px), Tablet, and Mobile viewports to test responsive designs instantly."
+                }
+            }]
+        }
+    ]
     </script>
 
     <script>
@@ -193,8 +224,21 @@
 
         /* --- Footer --- */
         .info-section { width: 100%; max-width: 800px; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
-        .info-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 15px; }
-        .info-text { line-height: 1.6; color: var(--text-muted); margin-bottom: 20px; }
+        .info-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 20px; color: var(--text-main); text-align: center; }
+        .info-subtitle { font-size: 1.3rem; font-weight: 700; margin: 25px 0 15px; color: var(--text-main); }
+        .info-text { line-height: 1.7; color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; }
+        .info-list { list-style: none; padding: 0; margin-bottom: 20px; }
+        .info-list li { margin-bottom: 10px; padding-left: 20px; position: relative; color: var(--text-muted); }
+        .info-list li::before { content: "•"; color: var(--brand); font-weight: bold; position: absolute; left: 0; }
+        
+        /* Accordion for FAQ */
+        .faq-container { margin-top: 20px; }
+        .faq-item { border-bottom: 1px solid var(--border); padding: 15px 0; }
+        .faq-question { font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; color: var(--text-main); }
+        .faq-answer { display: none; margin-top: 10px; color: var(--text-muted); line-height: 1.6; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { color: var(--brand-text); }
+
         .footer { margin-top: 50px; text-align: center; color: var(--text-muted); font-size: 0.9rem; padding-bottom: 30px; border-top: 1px solid var(--border); padding-top: 30px; width: 100%; max-width: 800px; }
         .dev-profile { display: flex; flex-direction: column; align-items: center; gap: 15px; }
         .dev-name { font-size: 1.2rem; font-weight: 800; color: var(--text-main); }
@@ -308,7 +352,7 @@
         <div class="result-container" id="resultArea">
             <label>Snapshot Preview</label>
             <div class="img-wrapper" onclick="openModal()">
-                <img id="resultImg" alt="Screenshot">
+                <img id="resultImg" alt="Generated full page website screenshot preview">
             </div>
         </div>
     </div>
@@ -322,17 +366,56 @@
     </div>
 
     <div class="info-section">
-        <h1 class="info-title">SnapStream: Free Instant Website Screenshots</h1>
+        <h1 class="info-title">SnapStream: #1 Free Website Screenshot Generator & API</h1>
+        
         <p class="info-text">
-            SnapStream is the ultimate <strong>web screenshot tool</strong> for developers, designers, and marketers. Capture high-fidelity images of any website instantly using our cloud-based engine. 
+            SnapStream is a professional-grade <strong>website screenshot generator</strong> designed for developers, SEO experts, and designers. Unlike other tools that add watermarks or require logins, SnapStream provides instant, high-resolution (up to 4K) captures of any webpage completely free.
         </p>
+
+        <h2 class="info-subtitle">Why Choose SnapStream for Screen Capture?</h2>
+        <ul class="info-list">
+            <li><strong>No Watermarks:</strong> Generate clean, professional images suitable for client reports and portfolios.</li>
+            <li><strong>Responsive Screen Capture:</strong> Simulate real-world devices. Instantly switch between <strong>Desktop (1920x1080)</strong>, Tablet, and Mobile viewports to test <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank" rel="noopener noreferrer" style="color:var(--brand-text); text-decoration:underline;">responsive design</a> layouts.</li>
+            <li><strong>Full Page Scrolling:</strong> Don't just capture the fold. Our engine scrolls the entire page to generate a comprehensive <strong>full page screenshot</strong>.</li>
+            <li><strong>Fast Cloud Rendering:</strong> Powered by the Microlink API, ensuring pixel-perfect rendering of modern JavaScript frameworks (React, Vue, etc.) without slowing down your device.</li>
+        </ul>
+
+        <h2 class="info-subtitle">Who is this Tool For?</h2>
         <p class="info-text">
-            <strong>Key Features:</strong>
-            <br>• <strong>Responsive Testing:</strong> Simulate Desktop (1920x1080), Tablet, and Mobile viewports effortlessly.
-            <br>• <strong>Full Page Capture:</strong> Generate scrolling screenshots of entire landing pages.
-            <br>• <strong>Client-Side Privacy:</strong> Images are processed instantly without storing data on our servers.
-            <br>• <strong>High Performance:</strong> Powered by the Microlink API for pixel-perfect rendering.
+            <strong>Web Designers:</strong> Quickly archive landing page designs or check responsiveness on different screen sizes.<br>
+            <strong>SEO Professionals:</strong> Capture competitors' websites or generate visuals for site audit reports.<br>
+            <strong>Developers:</strong> Test how your localhost or staging sites render in a clean environment before deployment.
         </p>
+
+        <h2 class="info-subtitle">How to Use SnapStream</h2>
+        <p class="info-text">
+            1. Enter the <strong>Website URL</strong> you want to capture.<br>
+            2. Select your desired viewport (Desktop, Tablet, or Mobile).<br>
+            3. (Optional) Toggle "Custom Settings" to define exact pixel dimensions or enable <strong>Full Page Scrolling</strong>.<br>
+            4. Click "Capture Snapshot" and download your high-quality PNG image instantly.
+        </p>
+
+        <h2 class="info-subtitle">Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-container">
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">How do I take a full page screenshot? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    To take a full page capture, click on "Custom Settings & Ratio" and check the box labeled "Capture Full Page Scrolling". Then click Capture. The tool will automatically scroll and stitch the entire page into one image.
+                </div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Is this screenshot API free to use? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    Yes, SnapStream is a free screenshot generator. You can capture unlimited images for personal or commercial use without watermarks or hidden fees.
+                </div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Does it support mobile viewports? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    Yes. We offer built-in presets for Mobile (375px width) and Tablet (800px width) to help you visualize responsive designs accurately.
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer class="footer">
@@ -340,20 +423,20 @@
             <div class="dev-name">Developed by Dippan Bhusal</div>
             
             <div class="social-grid">
-                <a href="https://github.com/KDippan" target="_blank" class="social-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com/in/KDippan" target="_blank" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://instagram.com/dippan.bhusal" target="_blank" class="social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://tiktok.com/@dippan.bhusal" target="_blank" class="social-link" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://facebook.com/dippan.bhusall" target="_blank" class="social-link" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://x.com/DippanBhusal" target="_blank" class="social-link" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://github.com/KDippan" target="_blank" class="social-link" title="GitHub" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/KDippan" target="_blank" class="social-link" title="LinkedIn" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/dippan.bhusal" target="_blank" class="social-link" title="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com/@dippan.bhusal" target="_blank" class="social-link" title="TikTok" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://facebook.com/dippan.bhusall" target="_blank" class="social-link" title="Facebook" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://x.com/DippanBhusal" target="_blank" class="social-link" title="X (Twitter)" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="mailto:dippan.connect@gmail.com" class="social-link" title="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
 
             <div class="github-actions">
-                <a href="https://github.com/kdippan/SnapStream" target="_blank" class="gh-btn">
+                <a href="https://github.com/kdippan/SnapStream" target="_blank" class="gh-btn" rel="noopener noreferrer">
                     <i class="fa-regular fa-star"></i> Star on GitHub
                 </a>
-                <a href="https://github.com/sponsors/KDippan" target="_blank" class="gh-btn sponsor">
+                <a href="https://github.com/sponsors/KDippan" target="_blank" class="gh-btn sponsor" rel="noopener noreferrer">
                     <i class="fa-regular fa-heart"></i> Sponsor
                 </a>
             </div>
@@ -553,6 +636,17 @@
         function openModal() { document.getElementById('imageModal').style.display = 'flex'; }
         function closeModal() { document.getElementById('imageModal').style.display = 'none'; }
         window.onclick = function(e) { if (e.target == document.getElementById('imageModal')) closeModal(); }
+
+        // --- FAQ Toggle ---
+        function toggleFaq(item) {
+            item.classList.toggle('active');
+            const icon = item.querySelector('.fa-chevron-down');
+            if (item.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
     </script>
 </body>
 </html>

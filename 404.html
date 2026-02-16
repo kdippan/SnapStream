@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | SnapStream</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --brand: #FFDD00; --bg: #F8FAFC; --text: #0F172A; }
+        [data-theme="dark"] { --bg: #0f172a; --text: #F8FAFC; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg); color: var(--text);
+            height: 100vh; margin: 0; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+        }
+        h1 { font-size: 8rem; margin: 0; line-height: 1; color: var(--brand); text-shadow: 4px 4px 0px rgba(0,0,0,0.1); }
+        h2 { font-size: 2rem; margin: 10px 0 20px; }
+        p { max-width: 400px; line-height: 1.6; opacity: 0.8; margin-bottom: 30px; }
+        .btn {
+            background: var(--text); color: var(--bg); padding: 15px 30px;
+            border-radius: 12px; text-decoration: none; font-weight: 700;
+            transition: transform 0.2s; display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn:hover { transform: translateY(-3px); background: var(--brand); color: black; }
+        @media (prefers-color-scheme: dark) { :root { --bg: #0f172a; --text: #F8FAFC; } }
+    </style>
+</head>
+<body>
+    <h1>404</h1>
+    <h2>Snapshot Not Found</h2>
+    <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+    <a href="/" class="btn"><i class="fa-solid fa-house"></i> Back to Home</a>
+</body>
+</html>

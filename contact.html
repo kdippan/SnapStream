@@ -98,16 +98,16 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // UI Loading State
+            // 1. Loading State
             btn.disabled = true;
             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
             result.style.display = 'none';
 
-            // Gather Data
+            // 2. Gather Data
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
 
-            // Send to your Vercel API
+            // 3. Send to YOUR Serverless Function (Hides the Formspree ID)
             fetch('/api/contact', {
                 method: 'POST',
                 headers: {
@@ -117,24 +117,22 @@
             })
             .then(async (response) => {
                 let json;
-                const text = await response.text();
-                
-                // Safe JSON parsing
                 try {
-                    json = JSON.parse(text);
+                    json = await response.json();
                 } catch (e) {
-                    // If parsing fails, use the raw text (HTML error)
-                    json = { message: "Server Error: " + text.substring(0, 100) };
+                    json = { message: "Unexpected response from server." };
                 }
-                
+
                 if (response.status === 200) {
+                    // Success
                     result.innerHTML = "✅ " + json.message;
                     result.classList.remove('error');
                     result.classList.add('success');
                     result.style.display = 'block';
                     form.reset(); 
                 } else {
-                    result.innerHTML = "⚠️ " + (json.message || "Something went wrong.");
+                    // Error
+                    result.innerHTML = "⚠️ " + (json.message || "Failed to send message.");
                     result.classList.remove('success');
                     result.classList.add('error');
                     result.style.display = 'block';
@@ -142,17 +140,18 @@
             })
             .catch(error => {
                 console.error(error);
-                result.innerHTML = "⚠️ Network error. Please try again later.";
+                result.innerHTML = "⚠️ Network error. Please try again.";
                 result.classList.remove('success');
                 result.classList.add('error');
                 result.style.display = 'block';
             })
             .finally(() => {
+                // 4. Restore Button
                 btn.disabled = false;
                 btn.innerHTML = originalBtnText;
                 
-                // Only hide success message automatically
-                if(result.classList.contains('success')) {
+                // Auto-hide success message after 5 seconds
+                if (result.classList.contains('success')) {
                     setTimeout(() => { result.style.display = 'none'; }, 5000);
                 }
             });

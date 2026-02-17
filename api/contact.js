@@ -1,5 +1,8 @@
 export default async function handler(req, res) {
-    // 1. Only allow POST requests
+    // 1. Allow CORS (Optional but good for debugging)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST');
+
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method Not Allowed' });
     }
@@ -7,13 +10,18 @@ export default async function handler(req, res) {
     try {
         const { name, email, subject, message } = req.body;
 
-        // 2. Get the Secret Key from Vercel Environment Variables
-        // (See instructions below on how to set this)
-        const access_key = process.env.WEB3FORMS_ACCESS_KEY;
+        // 2. Load and CLEAN the key (Remove accidental spaces/newlines)
+        let access_key = process.env.WEB3FORMS_ACCESS_KEY;
 
         if (!access_key) {
-            return res.status(500).json({ message: 'Server Configuration Error: Missing API Key' });
+            console.error("CRITICAL: API Key is undefined in Vercel.");
+            return res.status(500).json({ message: 'Server Config Error: API Key missing.' });
         }
+
+        // SANITIZATION: Remove whitespace/newlines
+        access_key = access_key.trim();
+
+        console.log(`Attempting to send email with Key ending in: ...${access_key.slice(-4)}`);
 
         // 3. Send to Web3Forms
         const response = await fetch('https://api.web3forms.com/submit', {
@@ -34,14 +42,19 @@ export default async function handler(req, res) {
 
         const result = await response.json();
 
-        // 4. Return success or error to frontend
+        // 4. Handle Response
         if (response.status === 200) {
+            console.log("Success: Email sent.");
             return res.status(200).json({ message: 'Email sent successfully!' });
         } else {
-            return res.status(500).json({ message: result.message || 'Failed to send email.' });
+            console.error("Web3Forms API Error:", result);
+            return res.status(500).json({ 
+                message: result.message || 'Error sending email via Web3Forms.' 
+            });
         }
 
     } catch (error) {
-        return res.status(500).json({ message: 'Internal Server Error' });
+        console.error("Server Crash:", error);
+        return res.status(500).json({ message: 'Internal Server Error: ' + error.message });
     }
 }

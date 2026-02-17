@@ -7,30 +7,7 @@
     <meta name="description" content="Contact the developer of SnapStream for feature requests, bug reports, or partnerships.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://snapstream.dippanbhusal.tech/contact.html">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3159539127750553" crossorigin="anonymous"></script>
     
-    <script>
-        (function() {
-            const hostname = window.location.hostname;
-            let gaId = 'G-ER1HTYDD82'; 
-
-            if (hostname.includes('snapstream-lake.vercel.app')) {
-                gaId = 'G-8F468V2JWX';
-            } else if (hostname.includes('snapstream.dippanbhusal.tech')) {
-                gaId = 'G-ER1HTYDD82';
-            }
-
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
-            document.head.appendChild(script);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', gaId);
-        })();
-    </script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -58,7 +35,7 @@
         .direct-email a { color: var(--text); font-weight: bold; text-decoration: none; }
 
         /* Notification Styles */
-        .notification { padding: 15px; border-radius: 10px; margin-bottom: 20px; font-size: 0.9rem; display: none; }
+        .notification { padding: 15px; border-radius: 10px; margin-bottom: 20px; font-size: 0.9rem; display: none; word-break: break-word; }
         .success { background-color: #d1fae5; color: #065f46; border: 1px solid #34d399; }
         .error { background-color: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
     </style>
@@ -130,7 +107,7 @@
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
 
-            // Send to Serverless Function (Secure)
+            // Send to your Vercel API
             fetch('/api/contact', {
                 method: 'POST',
                 headers: {
@@ -139,10 +116,19 @@
                 body: JSON.stringify(data)
             })
             .then(async (response) => {
-                const json = await response.json();
+                let json;
+                const text = await response.text();
+                
+                // Safe JSON parsing
+                try {
+                    json = JSON.parse(text);
+                } catch (e) {
+                    // If parsing fails, use the raw text (HTML error)
+                    json = { message: "Server Error: " + text.substring(0, 100) };
+                }
                 
                 if (response.status === 200) {
-                    result.innerHTML = "✅ Message sent successfully! We will get back to you soon.";
+                    result.innerHTML = "✅ " + json.message;
                     result.classList.remove('error');
                     result.classList.add('success');
                     result.style.display = 'block';
@@ -164,7 +150,11 @@
             .finally(() => {
                 btn.disabled = false;
                 btn.innerHTML = originalBtnText;
-                setTimeout(() => { result.style.display = 'none'; }, 5000);
+                
+                // Only hide success message automatically
+                if(result.classList.contains('success')) {
+                    setTimeout(() => { result.style.display = 'none'; }, 5000);
+                }
             });
         });
     </script>

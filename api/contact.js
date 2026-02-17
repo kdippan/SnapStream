@@ -1,4 +1,5 @@
 export default async function handler(req, res) {
+    // 1. Only allow POST requests
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method Not Allowed' });
     }
@@ -6,14 +7,18 @@ export default async function handler(req, res) {
     try {
         const { name, email, subject, message } = req.body;
 
-        // 1. Clean the Key
+        // 2. Get and Clean the Key
         let access_key = process.env.WEB3FORMS_ACCESS_KEY;
-        if (!access_key) return res.status(500).json({ message: 'API Key missing.' });
+
+        if (!access_key) {
+            console.error("CRITICAL: API Key is missing in Vercel.");
+            return res.status(500).json({ message: 'Server Config Error: API Key missing.' });
+        }
+
+        // Remove any accidental newlines or spaces
         access_key = access_key.replace(/[\r\n\s]+/g, '');
 
-        console.log("Sending to Web3Forms...");
-
-        // 2. Send Request
+        // 3. Send to Web3Forms
         const response = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: {
@@ -26,32 +31,37 @@ export default async function handler(req, res) {
                 email,
                 subject,
                 message,
-                from_name: "SnapStream Contact"
+                from_name: "SnapStream Contact Form"
             })
         });
 
-        // 3. Get the Raw Text (Do not parse as JSON yet)
+        // 4. CRITICAL FIX: Read raw text first (Prevents crashing on HTML errors)
         const text = await response.text();
 
-        // 4. Check if it failed
-        if (!response.ok) {
-            console.error("Web3Forms API Error:", text);
-            // Return the HTML error text to the frontend so you can see it
-            return res.status(response.status).json({ 
-                message: `Web3Forms Error: ${text.substring(0, 150)}...` 
+        // 5. Try to parse as JSON
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            console.error("Web3Forms returned NON-JSON response:", text);
+            // Return the raw error text so we can see what's wrong
+            return res.status(500).json({ 
+                message: `Gateway Error: ${text.substring(0, 100)}...` 
             });
         }
 
-        // 5. If success, try to parse
-        try {
-            const data = JSON.parse(text);
+        // 6. Handle JSON Response
+        if (response.ok && data.success) {
             return res.status(200).json({ message: 'Email sent successfully!' });
-        } catch (e) {
-            return res.status(500).json({ message: 'Received invalid JSON from Web3Forms.' });
+        } else {
+            console.error("Web3Forms API Error:", data);
+            return res.status(400).json({ 
+                message: data.message || 'Failed to send email.' 
+            });
         }
 
     } catch (error) {
-        console.error("Server Error:", error);
+        console.error("Server Internal Error:", error);
         return res.status(500).json({ message: error.message });
     }
 }

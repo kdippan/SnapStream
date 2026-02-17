@@ -1,4 +1,4 @@
-# SnapStream
+# SnapStream Website Screenshot - Dippan Bhusal
 
 > Instant Website Screenshot Generator & API
 

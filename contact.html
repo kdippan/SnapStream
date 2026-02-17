@@ -7,58 +7,163 @@
     <meta name="description" content="Contact the developer of SnapStream for feature requests, bug reports, or partnerships.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://snapstream.dippanbhusal.tech/contact.html">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3159539127750553" crossorigin="anonymous"></script>
+    <script>
+        (function() {
+            const hostname = window.location.hostname;
+            let gaId = 'G-ER1HTYDD82'; 
+            if (hostname.includes('snapstream-lake.vercel.app')) {
+                gaId = 'G-8F468V2JWX';
+            } else if (hostname.includes('snapstream.dippanbhusal.tech')) {
+                gaId = 'G-ER1HTYDD82';
+            }
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            document.head.appendChild(script);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', gaId);
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        :root { --brand: #FFDD00; --bg: #F8FAFC; --card-bg: #FFFFFF; --text: #0F172A; --muted: #64748B; --border: #E2E8F0; --input: #F1F5F9; }
-        [data-theme="dark"] { --bg: #0f172a; --card-bg: #1e293b; --text: #F8FAFC; --muted: #94A3B8; --border: #334155; --input: #020617; }
-        
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-        
-        .contact-card { width: 100%; max-width: 500px; background: var(--card-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
-        
+        :root {
+            --brand: #FFDD00;
+            --bg: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text: #0F172A;
+            --muted: #64748B;
+            --border: #E2E8F0;
+            --input: #F1F5F9;
+            --shadow: rgba(0,0,0,0.05);
+        }
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #F8FAFC;
+            --muted: #94A3B8;
+            --border: #334155;
+            --input: #020617;
+            --shadow: rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        nav {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-card {
+            width: 100%;
+            max-width: 500px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 40px var(--shadow);
+        }
         h1 { margin-top: 0; font-size: 2rem; }
         p { color: var(--muted); margin-bottom: 30px; }
-        
         .form-group { margin-bottom: 20px; }
         label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.9rem; }
-        input, textarea, select { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid var(--border); background: var(--input); color: var(--text); font-family: inherit; box-sizing: border-box; }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+            background: var(--input);
+            color: var(--text);
+            font-family: inherit;
+            box-sizing: border-box;
+        }
         input:focus, textarea:focus, select:focus { outline: none; border-color: var(--brand); }
-        
-        .btn-submit { width: 100%; background: var(--brand); color: black; border: none; padding: 15px; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 1rem; margin-top: 10px; transition: transform 0.1s; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .btn-submit {
+            width: 100%;
+            background: var(--brand);
+            color: black;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            transition: transform 0.1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
         .btn-submit:active { transform: scale(0.98); }
         .btn-submit:disabled { opacity: 0.7; cursor: wait; }
-
-        .direct-email { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--muted); }
+        .direct-email {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
         .direct-email a { color: var(--text); font-weight: bold; text-decoration: none; }
-
-        /* Notification Styles */
-        .notification { padding: 15px; border-radius: 10px; margin-bottom: 20px; font-size: 0.9rem; display: none; word-break: break-word; }
+        .notification {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            display: none;
+            word-break: break-word;
+        }
         .success { background-color: #d1fae5; color: #065f46; border: 1px solid #34d399; }
         .error { background-color: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
     </style>
 </head>
 <body>
-
+    <nav>
+        <button class="theme-toggle" onclick="cycleTheme()" id="themeBtn" title="Toggle Theme">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+    </nav>
     <div class="contact-card">
         <h1>Get in Touch</h1>
         <p>Have a feature request, bug report, or partnership inquiry? We'd love to hear from you.</p>
-
         <div id="result" class="notification"></div>
-
         <form id="contactForm">
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" placeholder="Your Name" required>
             </div>
-            
             <div class="form-group">
                 <label>Email</label>
                 <input type="email" name="email" placeholder="name@example.com" required>
             </div>
-
             <div class="form-group">
                 <label>Subject</label>
                 <select name="subject" required>
@@ -68,28 +173,67 @@
                     <option value="Advertising">Advertising</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label>Message</label>
                 <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
             </div>
-
             <button type="submit" class="btn-submit" id="submitBtn">
                 <i class="fa-solid fa-paper-plane"></i> Send Message
             </button>
         </form>
-
         <div class="direct-email">
             Prefer direct email?<br>
             <a href="mailto:dippan.connect@gmail.com">dippan.connect@gmail.com</a>
         </div>
-        
         <div style="text-align: center; margin-top: 20px;">
-            <a href="/" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">&larr; Back to Home</a>
+            <a href="/" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
         </div>
     </div>
-
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="dippanbhusal" data-description="Support me on Buy me a coffee!" data-message="Support Me!" data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
     <script>
+        const themes = ['system', 'light', 'dark'];
+        let currentThemeIndex = 0;
+        function initTheme() {
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme) {
+                document.documentElement.setAttribute('data-theme', storedTheme);
+                currentThemeIndex = themes.indexOf(storedTheme);
+                if (currentThemeIndex === -1) currentThemeIndex = 0;
+            } else {
+                applySystemTheme();
+            }
+            updateThemeIcon();
+        }
+        function applySystemTheme() {
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        }
+        function cycleTheme() {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            const newTheme = themes[currentThemeIndex];
+            if (newTheme === 'system') {
+                localStorage.removeItem('theme');
+                applySystemTheme();
+            } else {
+                localStorage.setItem('theme', newTheme);
+                document.documentElement.setAttribute('data-theme', newTheme);
+            }
+            updateThemeIcon();
+        }
+        function updateThemeIcon() {
+            const btn = document.getElementById('themeBtn');
+            const mode = themes[currentThemeIndex];
+            if (mode === 'light') btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            else if (mode === 'dark') btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            else btn.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i>';
+        }
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) applySystemTheme();
+        });
+        window.addEventListener('load', initTheme);
+
         const form = document.getElementById('contactForm');
         const result = document.getElementById('result');
         const btn = document.getElementById('submitBtn');
@@ -97,22 +241,14 @@
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // 1. Loading State
             btn.disabled = true;
             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
             result.style.display = 'none';
-
-            // 2. Gather Data
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
-
-            // 3. Send to YOUR Serverless Function (Hides the Formspree ID)
             fetch('/api/contact', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             })
             .then(async (response) => {
@@ -120,43 +256,35 @@
                 try {
                     json = await response.json();
                 } catch (e) {
-                    json = { message: "Unexpected response from server." };
+                    json = { message: "Unexpected server error." };
                 }
-
                 if (response.status === 200) {
-                    // Success
-                    result.innerHTML = "✅ " + json.message;
+                    result.innerHTML = '<i class="fa-solid fa-check-circle"></i> ' + json.message;
                     result.classList.remove('error');
                     result.classList.add('success');
                     result.style.display = 'block';
                     form.reset(); 
                 } else {
-                    // Error
-                    result.innerHTML = "⚠️ " + (json.message || "Failed to send message.");
+                    result.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> ' + (json.message || "Failed to send message.");
                     result.classList.remove('success');
                     result.classList.add('error');
                     result.style.display = 'block';
                 }
             })
             .catch(error => {
-                console.error(error);
-                result.innerHTML = "⚠️ Network error. Please try again.";
+                result.innerHTML = '<i class="fa-solid fa-wifi"></i> Network error. Please try again.';
                 result.classList.remove('success');
                 result.classList.add('error');
                 result.style.display = 'block';
             })
             .finally(() => {
-                // 4. Restore Button
                 btn.disabled = false;
                 btn.innerHTML = originalBtnText;
-                
-                // Auto-hide success message after 5 seconds
                 if (result.classList.contains('success')) {
                     setTimeout(() => { result.style.display = 'none'; }, 5000);
                 }
             });
         });
     </script>
-
 </body>
 </html>

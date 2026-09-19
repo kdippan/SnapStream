@@ -3,14 +3,14 @@
   
   <url>
     <loc>https://snapstream.dippanbhusal.tech/</loc>
-    <lastmod>2026-02-20</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://snapstream.dippanbhusal.tech/about.html</loc>
-    <lastmod>2026-02-20</lastmod>
+    <loc>https://snapstream.dippan.com.np/about.html</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -24,7 +24,7 @@
 
   <url>
     <loc>https://snapstream.dippanbhusal.tech/privacy.html</loc>
-    <lastmod>2026-02-20</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>

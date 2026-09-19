@@ -12,7 +12,7 @@
 ---
 
 ## 🔗 Live Demo
-🚀 **[https://snapstream.dippanbhusal.tech/](https://snapstream.dippanbhusal.tech/)**
+🚀 **[https://snapstream.dippan.com.np/](https://snapstream.dippan.com.np/)**
 
 ---
 

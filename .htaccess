@@ -1,8 +1,9 @@
 RewriteEngine On
 
-# 1. Force HTTPS
+# 1. Force HTTPS and the single canonical host
+RewriteCond %{HTTP_HOST} !^snapstream\.dippan\.com\.np$ [NC,OR]
 RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^(.*)$ https://snapstream.dippan.com.np%{REQUEST_URI} [L,R=301]
 
 # 2. Remove .html extension
 RewriteCond %{REQUEST_FILENAME} !-d

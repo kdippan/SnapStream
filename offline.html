@@ -8,12 +8,6 @@
             const hostname = window.location.hostname;
             let gaId = 'G-ER1HTYDD82'; 
 
-            if (hostname.includes('snapstream-lake.vercel.app')) {
-                gaId = 'G-8F468V2JWX';
-            } else if (hostname.includes('snapstream.dippanbhusal.tech')) {
-                gaId = 'G-ER1HTYDD82';
-            }
-
             const script = document.createElement('script');
             script.async = true;
             script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;

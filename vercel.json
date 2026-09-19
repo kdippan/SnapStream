@@ -1,6 +1,20 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "snapstream-lake.vercel.app" }],
+      "destination": "https://snapstream.dippan.com.np/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "snapstream.dippanbhusal.tech" }],
+      "destination": "https://snapstream.dippan.com.np/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/about", "destination": "/about.html" },
     { "source": "/contact", "destination": "/contact.html" },

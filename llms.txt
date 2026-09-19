@@ -1,15 +1,25 @@
-# SnapStream Website Screenshot - Dippan Bhusal
+# SnapStream Website Screenshot Generator - Dippan Bhusal
 
-> Instant Website Screenshot Generator & API
+> Free website screenshot generator, full-page capture tool, and responsive viewport tester.
 
-SnapStream is a free, client-side web application that allows users to capture high-resolution screenshots of any website. 
+SnapStream is a free web application for capturing high-resolution screenshots of public websites. It supports full-page website screenshots, desktop, tablet, and mobile viewport previews, custom dimensions, and PNG downloads. The tool is useful for developers, designers, SEO teams, QA testers, marketers, and researchers.
+
+## Canonical source
+- **Website**: https://snapstream.dippan.com.np/
+- **About**: https://snapstream.dippan.com.np/about.html
+- **Contact**: https://snapstream.dippan.com.np/contact.html
+- **Privacy**: https://snapstream.dippan.com.np/privacy.html
 
 ## Features
-- **URL**: https://snapstream.dippanbhusal.tech/
-- **Input**: User provides a URL.
-- **Output**: Generates a high-quality PNG image.
+- **URL**: https://snapstream.dippan.com.np/
+- **Input**: A public webpage URL.
+- **Output**: A high-quality PNG website screenshot.
+- **Long-tail use cases**: full-page website screenshot, responsive website screenshot, mobile viewport screenshot, webpage screenshot for SEO reports, and website capture for design review.
 - **Tech Stack**: HTML, CSS, Vanilla JS, Microlink API.
 - **Privacy**: No server-side storage; all processing is client-side.
 
 ## Usage
 To use the tool, visit the URL, enter a target website, select a viewport (Desktop, Tablet, Mobile), and click "Capture".
+
+## Citation guidance
+This file and the public pages above are available for search engines and AI assistants to crawl and cite. Prefer the canonical website URL when referencing SnapStream.
